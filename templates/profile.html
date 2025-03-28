@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - AI-Enhanced Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.5);
+            border-radius: 4px;
+        }
+        
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(75, 85, 99, 0.5);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background-color: rgba(229, 231, 235, 0.5);
+        }
+        
+        .dark .custom-scrollbar::-webkit-scrollbar-track {
+            background-color: rgba(31, 41, 55, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800 dark:text-white">User Profile</h1>
+                    <p class="text-gray-600 dark:text-gray-400">Manage your account and view command history</p>
+                </div>
+                <div class="mt-4 sm:mt-0 space-x-4">
+                    <a href="{{ url_for('index') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                        Return to Terminal
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- User Info Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Account Information</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Username</p>
+                        <p class="font-medium text-gray-800 dark:text-white">{{ user.username }}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                        <p class="font-medium text-gray-800 dark:text-white">{{ user.email }}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Role</p>
+                        <p class="font-medium text-gray-800 dark:text-white">{{ user.role }}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Account Created</p>
+                        <p class="font-medium text-gray-800 dark:text-white">{{ user.created_at.strftime('%Y-%m-%d') }}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Last Login</p>
+                        <p class="font-medium text-gray-800 dark:text-white">
+                            {% if user.last_login %}
+                                {{ user.last_login.strftime('%Y-%m-%d %H:%M:%S') }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <button id="change-password-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                        Change Password
+                    </button>
+                </div>
+                
+                <!-- Password Change Form (Hidden by default) -->
+                <div id="password-form" class="hidden mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-4">Change Password</h3>
+                    
+                    <form id="password-change-form" class="space-y-4">
+                        <div>
+                            <label for="current-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Current Password</label>
+                            <input type="password" id="current-password" name="current_password" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-base">
+                        </div>
+                        
+                        <div>
+                            <label for="new-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">New Password</label>
+                            <input type="password" id="new-password" name="new_password" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-base">
+                        </div>
+                        
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm New Password</label>
+                            <input type="password" id="confirm-password" name="confirm_password" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-base">
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                                Update Password
+                            </button>
+                            <button type="button" id="cancel-password-change" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- API Keys Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">API Keys</h2>
+                
+                <div class="mb-6">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Create API keys to access the terminal programmatically. Keep your keys secure!
+                    </p>
+                </div>
+                
+                <div class="mb-6">
+                    <button id="create-key-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                        Create New API Key
+                    </button>
+                </div>
+                
+                <!-- API Key Creation Form (Hidden by default) -->
+                <div id="key-form" class="hidden mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-4">Create New API Key</h3>
+                    
+                    <form id="api-key-form" class="space-y-4">
+                        <div>
+                            <label for="key-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Key Name</label>
+                            <input type="text" id="key-name" name="name" required placeholder="e.g., Development Key"
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-base">
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                                Create Key
+                            </button>
+                            <button type="button" id="cancel-key-creation" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- New Key Display (Hidden by default) -->
+                <div id="new-key-display" class="hidden mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-medium text-green-800 dark:text-green-400">New API Key Created</h3>
+                        <button id="close-key-display" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <p class="text-sm text-green-700 dark:text-green-300 mb-2">
+                        This is the only time your full API key will be displayed. Please save it immediately!
+                    </p>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-green-200 dark:border-green-800 mb-4">
+                        <code id="new-key-value" class="text-xs sm:text-sm font-mono text-green-800 dark:text-green-400 break-all"></code>
+                    </div>
+                    
+                    <button id="copy-key-btn" class="text-sm bg-green-600 hover:bg-green-700 text-white font-medium py-1.5 px-3 rounded transition-colors duration-200">
+                        Copy to Clipboard
+                    </button>
+                </div>
+                
+                <!-- Existing API Keys -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-4">Your API Keys</h3>
+                    
+                    {% if api_keys|length > 0 %}
+                        <div class="space-y-4">
+                            {% for key in api_keys %}
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <h4 class="font-medium text-gray-800 dark:text-white">{{ key.name }}</h4>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400">Created: {{ key.created_at.strftime('%Y-%m-%d') }}</p>
+                                            {% if key.last_used %}
+                                                <p class="text-xs text-gray-500 dark:text-gray-400">Last used: {{ key.last_used.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                                            {% endif %}
+                                        </div>
+                                        <button class="delete-key-btn text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" data-key-id="{{ key.id }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="mt-2 bg-gray-100 dark:bg-gray-800 p-2 rounded">
+                                        <code class="text-xs font-mono text-gray-800 dark:text-gray-300">{{ key.key[:8] }}...{{ key.key[-4:] }}</code>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-gray-600 dark:text-gray-400">You don't have any API keys yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Command History Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Recent Commands</h2>
+                
+                <div class="custom-scrollbar overflow-y-auto max-h-96">
+                    {% if commands|length > 0 %}
+                        <div class="space-y-4">
+                            {% for command in commands %}
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="font-mono text-sm text-gray-800 dark:text-white">
+                                            {{ command.command_text }}
+                                        </div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400">{{ command.created_at.strftime('%m/%d %H:%M') }}</span>
+                                    </div>
+                                    
+                                    <div class="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                                        Exit code: {{ command.exit_code or 'N/A' }} | Execution time: {{ "%.2f"|format(command.execution_time or 0) }}s
+                                    </div>
+                                    
+                                    <details class="text-sm">
+                                        <summary class="text-indigo-600 dark:text-indigo-400 cursor-pointer">Show output</summary>
+                                        <div class="mt-2 bg-gray-100 dark:bg-gray-800 p-2 rounded overflow-x-auto">
+                                            <pre class="text-xs font-mono text-gray-800 dark:text-gray-300 whitespace-pre-wrap">{{ command.output }}</pre>
+                                        </div>
+                                    </details>
+                                    
+                                    {% if command.analysis %}
+                                        <details class="text-sm mt-2">
+                                            <summary class="text-green-600 dark:text-green-400 cursor-pointer">Show analysis</summary>
+                                            <div class="mt-2 bg-gray-100 dark:bg-gray-800 p-2 rounded">
+                                                <div class="text-xs text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ command.analysis }}</div>
+                                            </div>
+                                        </details>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-gray-600 dark:text-gray-400">You haven't executed any commands yet.</p>
+                    {% endif %}
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <a href="{{ url_for('get_command_history') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                        View Full Command History
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize dark mode based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Password change functionality
+        const changePasswordBtn = document.getElementById('change-password-btn');
+        const passwordForm = document.getElementById('password-form');
+        const cancelPasswordChange = document.getElementById('cancel-password-change');
+        const passwordChangeForm = document.getElementById('password-change-form');
+        
+        changePasswordBtn.addEventListener('click', function() {
+            passwordForm.classList.remove('hidden');
+            changePasswordBtn.classList.add('hidden');
+        });
+        
+        cancelPasswordChange.addEventListener('click', function() {
+            passwordForm.classList.add('hidden');
+            changePasswordBtn.classList.remove('hidden');
+            passwordChangeForm.reset();
+        });
+        
+        passwordChangeForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Password validation
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match');
+                return;
+            }
+            
+            // Submit password change
+            try {
+                const response = await fetch('/api/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        current_password: document.getElementById('current-password').value,
+                        new_password: newPassword
+                    }),
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Password updated successfully');
+                    passwordForm.classList.add('hidden');
+                    changePasswordBtn.classList.remove('hidden');
+                    passwordChangeForm.reset();
+                } else {
+                    alert(data.error || 'Failed to update password');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while updating password');
+            }
+        });
+        
+        // API Key functionality
+        const createKeyBtn = document.getElementById('create-key-btn');
+        const keyForm = document.getElementById('key-form');
+        const cancelKeyCreation = document.getElementById('cancel-key-creation');
+        const apiKeyForm = document.getElementById('api-key-form');
+        const newKeyDisplay = document.getElementById('new-key-display');
+        const newKeyValue = document.getElementById('new-key-value');
+        const copyKeyBtn = document.getElementById('copy-key-btn');
+        const closeKeyDisplay = document.getElementById('close-key-display');
+        
+        createKeyBtn.addEventListener('click', function() {
+            keyForm.classList.remove('hidden');
+            createKeyBtn.classList.add('hidden');
+        });
+        
+        cancelKeyCreation.addEventListener('click', function() {
+            keyForm.classList.add('hidden');
+            createKeyBtn.classList.remove('hidden');
+            apiKeyForm.reset();
+        });
+        
+        apiKeyForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                const response = await fetch('/api/keys', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: document.getElementById('key-name').value
+                    }),
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Show the new key
+                    newKeyValue.textContent = data.key;
+                    newKeyDisplay.classList.remove('hidden');
+                    keyForm.classList.add('hidden');
+                    
+                    // Refresh the page after a delay to show the new key in the list
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 5000);
+                } else {
+                    alert(data.error || 'Failed to create API key');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while creating API key');
+            }
+        });
+        
+        copyKeyBtn.addEventListener('click', function() {
+            const keyText = newKeyValue.textContent;
+            navigator.clipboard.writeText(keyText).then(function() {
+                copyKeyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyKeyBtn.textContent = 'Copy to Clipboard';
+                }, 2000);
+            });
+        });
+        
+        closeKeyDisplay.addEventListener('click', function() {
+            newKeyDisplay.classList.add('hidden');
+            createKeyBtn.classList.remove('hidden');
+            apiKeyForm.reset();
+        });
+        
+        // Delete API key functionality
+        document.querySelectorAll('.delete-key-btn').forEach(button => {
+            button.addEventListener('click', async function() {
+                const keyId = this.getAttribute('data-key-id');
+                
+                if (confirm('Are you sure you want to delete this API key? This action cannot be undone.')) {
+                    try {
+                        const response = await fetch(`/api/keys/${keyId}`, {
+                            method: 'DELETE',
+                        });
+                        
+                        if (response.ok) {
+                            // Refresh the page to update the key list
+                            window.location.reload();
+                        } else {
+                            const data = await response.json();
+                            alert(data.error || 'Failed to delete API key');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while deleting API key');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

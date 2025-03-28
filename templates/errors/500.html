@@ -1,0 +1,67 @@
+<!-- templates/errors/500.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 Server Error - AI-Enhanced Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col">
+    <div class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full mb-4">
+                        <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-800 dark:text-white">500 - Server Error</h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">
+                        Oops! Something went wrong on our end.
+                    </p>
+                </div>
+                
+                <div class="text-center mb-8">
+                    <p class="text-gray-600 dark:text-gray-400">
+                        We're sorry, but our server encountered an unexpected error and couldn't complete your request.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">
+                        Our team has been notified and is working to fix the issue.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <a href="{{ url_for('index') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition-colors duration-200">
+                        Return to Terminal
+                    </a>
+                    
+                    <button onclick="location.reload()" class="mt-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="py-4 text-center text-gray-600 dark:text-gray-400 text-sm">
+        <p>AI-Enhanced Terminal &copy; {{ now.year if now else 2023 }}</p>
+    </footer>
+
+    <script>
+        // Initialize dark mode based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>

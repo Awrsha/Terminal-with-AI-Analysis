@@ -1,0 +1,69 @@
+<!-- templates/errors/404.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - AI-Enhanced Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col">
+    <div class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-full mb-4">
+                        <svg class="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-800 dark:text-white">404 - Page Not Found</h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">
+                        Oops! The page you're looking for doesn't exist.
+                    </p>
+                </div>
+                
+                <div class="text-center mb-8">
+                    <p class="text-gray-600 dark:text-gray-400">
+                        The page you requested could not be found. It might have been moved, deleted, or never existed.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <a href="{{ url_for('index') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition-colors duration-200">
+                        Return to Terminal
+                    </a>
+                    
+                    <button onclick="goBack()" class="mt-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                        Go Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="py-4 text-center text-gray-600 dark:text-gray-400 text-sm">
+        <p>AI-Enhanced Terminal &copy; {{ now.year if now else 2023 }}</p>
+    </footer>
+
+    <script>
+        // Initialize dark mode based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Go back function
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

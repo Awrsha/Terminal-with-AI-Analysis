@@ -1,0 +1,883 @@
+2025-03-28 16:44:37,101 - __main__ - INFO - Database tables created
+2025-03-28 16:44:37,526 - __main__ - INFO - Created admin user: admin
+2025-03-28 16:44:37,584 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 16:44:37,594 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 16:44:55,733 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:44:55] "GET / HTTP/1.1" 200 -
+2025-03-28 16:44:58,651 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+2025-03-28 16:44:59,026 - __main__ - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-03-28 16:44:59,026 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+2025-03-28 16:44:59,026 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:44:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-28 16:44:59,354 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 364, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 325, in execute
+    application_iter = app(environ, start_response)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\middleware\proxy_fix.py", line 182, in __call__
+    return self.app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1399, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1160, in internal_server_error
+    return render_template('errors/500.html'), 500
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/500.html
+2025-03-28 16:45:08,072 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:08] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:45:10,902 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:10] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:45:17,285 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:17] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:45:19,135 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:19] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:45:28,264 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:28] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:45:29,974 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:45:29] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:49:14,523 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:14] "GET / HTTP/1.1" 200 -
+2025-03-28 16:49:15,264 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+2025-03-28 16:49:15,283 - __main__ - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-03-28 16:49:15,292 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+2025-03-28 16:49:15,292 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-28 16:49:15,312 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 364, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 325, in execute
+    application_iter = app(environ, start_response)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\middleware\proxy_fix.py", line 182, in __call__
+    return self.app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1399, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1160, in internal_server_error
+    return render_template('errors/500.html'), 500
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/500.html
+2025-03-28 16:49:30,077 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:30] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:49:33,093 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:33] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:49:39,537 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:39] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:49:41,190 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:41] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:49:48,877 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:48] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:49:50,580 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:49:50] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:50:57,707 - __main__ - INFO - Database tables created
+2025-03-28 16:50:57,774 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 16:50:57,774 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 16:51:01,344 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:51:01] "GET / HTTP/1.1" 200 -
+2025-03-28 16:51:02,343 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+2025-03-28 16:51:02,377 - __main__ - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-03-28 16:51:02,383 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+2025-03-28 16:51:02,401 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:51:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-28 16:51:02,491 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1144, in not_found
+    return render_template('errors/404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 364, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\serving.py", line 325, in execute
+    application_iter = app(environ, start_response)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\middleware\proxy_fix.py", line 182, in __call__
+    return self.app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1399, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 1160, in internal_server_error
+    return render_template('errors/500.html'), 500
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: errors/500.html
+2025-03-28 16:56:30,491 - __main__ - INFO - Database tables created
+2025-03-28 16:56:30,555 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 16:56:30,555 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 16:56:35,019 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:35] "GET / HTTP/1.1" 200 -
+2025-03-28 16:56:35,850 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-28 16:56:50,035 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:50] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 16:56:50,539 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:50] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:56:50,563 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:50] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:56:53,722 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:56:53] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:57:04,071 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:57:04] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 16:57:09,930 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:57:09] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 16:57:09,950 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:57:09] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 16:57:13,284 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 16:57:13] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:01:37,608 - __main__ - INFO - Database tables created
+2025-03-28 17:01:37,673 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 17:01:37,673 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 17:01:48,295 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:01:48] "GET / HTTP/1.1" 200 -
+2025-03-28 17:02:01,578 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:02:01] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:02:16,029 - werkzeug - INFO - 192.168.1.101 - - [28/Mar/2025 17:02:16] "GET / HTTP/1.1" 200 -
+2025-03-28 17:02:18,243 - werkzeug - INFO - 192.168.1.101 - - [28/Mar/2025 17:02:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-28 17:02:36,475 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:02:36] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:02:36,745 - app - ERROR - Exception on /api/execute [POST]
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_limiter\extension.py", line 1314, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 779, in execute_command
+    if command.toLowerCase() == 'clear':
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'toLowerCase'
+2025-03-28 17:02:36,758 - __main__ - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-03-28 17:02:36,769 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_limiter\extension.py", line 1314, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 779, in execute_command
+    if command.toLowerCase() == 'clear':
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'toLowerCase'
+
+2025-03-28 17:02:36,769 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:02:36] "[35m[1mPOST /api/execute HTTP/1.1[0m" 500 -
+2025-03-28 17:03:46,576 - __main__ - INFO - Database tables created
+2025-03-28 17:03:46,643 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 17:03:46,643 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 17:03:49,345 - werkzeug - INFO - 192.168.1.101 - - [28/Mar/2025 17:03:49] "GET / HTTP/1.1" 200 -
+2025-03-28 17:03:57,014 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:03:57] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:03:57,440 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:03:57] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:03:57,461 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:03:57] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:03:59,777 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:03:59] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:05:38,161 - __main__ - INFO - Database tables created
+2025-03-28 17:05:38,247 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 17:05:38,247 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 17:05:38,996 - werkzeug - INFO - 192.168.1.101 - - [28/Mar/2025 17:05:38] "GET / HTTP/1.1" 200 -
+2025-03-28 17:05:44,938 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:05:44] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:05:45,200 - app - ERROR - Exception on /api/execute [POST]
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_limiter\extension.py", line 1314, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 788, in execute_command
+    response.headers['X-Session-ID'] = session_id
+                                       ^^^^^^^^^^
+NameError: name 'session_id' is not defined. Did you mean: 'session'?
+2025-03-28 17:05:45,212 - __main__ - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-03-28 17:05:45,237 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_limiter\extension.py", line 1314, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\Terminal with AI Analysis\app.py", line 788, in execute_command
+    response.headers['X-Session-ID'] = session_id
+                                       ^^^^^^^^^^
+NameError: name 'session_id' is not defined. Did you mean: 'session'?
+
+2025-03-28 17:05:45,240 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:05:45] "[35m[1mPOST /api/execute HTTP/1.1[0m" 500 -
+2025-03-28 17:06:04,561 - __main__ - INFO - Database tables created
+2025-03-28 17:06:04,625 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.101:5000
+2025-03-28 17:06:04,626 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-28 17:06:11,383 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:11] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:11,662 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:11] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:11,697 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:11] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:13,479 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:13] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:18,278 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:18] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:18,544 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:18] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:18,599 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:18] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:20,460 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:20] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:25,999 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:25] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:26,514 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:26] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:26,532 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:26] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:28,189 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:28] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:37,007 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:37] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:37,284 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:37] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:37,344 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:37] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:38,850 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:38] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:47,423 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:47] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:47,746 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:47] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:06:47,758 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:47] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:49,452 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:06:49] "POST /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:06:55,916 - werkzeug - INFO - 192.168.1.101 - - [28/Mar/2025 17:06:55] "GET / HTTP/1.1" 200 -
+2025-03-28 17:07:06,261 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:07:06] "OPTIONS /api/execute HTTP/1.1" 200 -
+2025-03-28 17:07:11,453 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:07:11] "POST /api/execute HTTP/1.1" 200 -
+2025-03-28 17:07:11,478 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:07:11] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-03-28 17:07:13,937 - werkzeug - INFO - 127.0.0.1 - - [28/Mar/2025 17:07:13] "POST /api/analyze HTTP/1.1" 200 -
